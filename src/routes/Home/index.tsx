@@ -1,7 +1,7 @@
-import styles from './home.module.scss'
+import { useState } from 'react'
 
 import DropDown from 'components/DropDown'
-import { useState } from 'react'
+import styles from './home.module.scss'
 
 const DROPDOWN_CATEGORIES = ['전체', '음식점', '관광명소', '카페', '숙박', '문화시설', '기타']
 
