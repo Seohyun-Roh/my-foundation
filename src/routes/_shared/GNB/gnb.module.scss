@@ -1,0 +1,25 @@
+@use 'src/styles/mixins/flexbox';
+@use 'src/styles/constants/colors';
+
+.gnb {
+  border-bottom: 1px solid colors.$GRAYE;
+
+  ul {
+    @include flexbox.flexbox(center, center);
+    height: 50px;
+
+    li {
+      +li {
+        margin-left: 20px;
+      }
+
+      a {
+        color: colors.$GRAY2;
+      }
+    }
+  }
+}
+
+.isActive {
+  font-weight: 600;
+}
