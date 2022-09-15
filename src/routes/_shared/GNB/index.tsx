@@ -1,12 +1,25 @@
 import { NavLink } from 'react-router-dom'
+import { useRecoilState } from 'recoil'
 import { cx } from 'styles'
 
+import { themeState } from 'states/theme'
+
 import styles from './gnb.module.scss'
+import { Moon, Sun } from 'assets/svgs'
 
 const NAV_DATA = ['HOME', 'WEATHER']
 const NAV_URI = ['/', '/weather']
 
 const GNB = () => {
+  const [theme, setTheme] = useRecoilState(themeState)
+
+  const handleThemeClick = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark'
+
+    localStorage.setItem('theme', newTheme)
+    setTheme(newTheme)
+  }
+
   return (
     <nav className={styles.gnb}>
       <ul>
@@ -19,6 +32,11 @@ const GNB = () => {
             </li>
           )
         })}
+        <li>
+          <button type='button' onClick={handleThemeClick} className={styles.themeBtn}>
+            {theme === 'light' ? <Sun /> : <Moon />}
+          </button>
+        </li>
       </ul>
     </nav>
   )

@@ -4,17 +4,38 @@
 .gnb {
   border-bottom: 1px solid colors.$GRAYE;
 
+  :root[color-theme='dark'] & {
+    border-bottom: 1px solid colors.$GRAY3;
+
+    ul {
+      background-color: colors.$GRAY2;
+
+      li {
+        a {
+          color: colors.$WHITE;
+        }
+      }
+    }
+  }
+
   ul {
     @include flexbox.flexbox(center, center);
-    height: 50px;
+    padding: 20px 0;
+    transition: 300ms background-color;
 
     li {
+      font-size: 20px;
+
       +li {
         margin-left: 20px;
       }
 
       a {
         color: colors.$GRAY2;
+      }
+
+      .themeBtn {
+        @include flexbox.flexbox(center, center);
       }
     }
   }

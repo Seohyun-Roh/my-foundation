@@ -1,9 +1,30 @@
 @use '/src/styles/constants/colors';
 
-$ASSET_PATH: '/assets/svgs/';
-
 .select {
   position: relative;
+
+  :root[color-theme='dark'] & {
+    .selected,
+    ul {
+      color: colors.$WHITE;
+      background-color: colors.$GRAY3 !important;
+      border: none;
+
+      li {
+        &:hover {
+          background-color: colors.$GRAY6;
+        }
+
+        button {
+          color: colors.$WHITE;
+        }
+      }
+
+      .downArrowIcon {
+        fill: colors.$WHITE;
+      }
+    }
+  }
 
   .selected {
     box-sizing: border-box;
@@ -14,9 +35,10 @@ $ASSET_PATH: '/assets/svgs/';
     padding: 5px 14px;
     text-align: center;
     cursor: pointer;
-    background-color: rgb(255, 255, 255);
+    background-color: colors.$WHITE;
     border: 1px solid rgb(209, 216, 220);
     border-radius: 10px;
+    transition: 300ms background-color;
     -webkit-box-pack: justify;
     -webkit-box-align: center;
   }
@@ -30,9 +52,9 @@ $ASSET_PATH: '/assets/svgs/';
     padding-left: 0;
     overflow-y: auto;
     cursor: pointer;
-    background: #ffffff;
+    background: colors.$WHITE;
+    border: 1px solid rgb(209, 216, 220);
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 13%) 0 10px 20px;
     opacity: 0;
     transition: all 0.2s ease-out;
 
@@ -43,13 +65,14 @@ $ASSET_PATH: '/assets/svgs/';
       }
 
       &:hover {
-        background-color: #f5f5f5;
+        background-color: colors.$GRAYE;
       }
     }
   }
 }
 
 .downArrowIcon {
+  fill: colors.$GRAYA;
   transition: transform 0.3s linear;
   transform: rotate(0deg);
 

@@ -1,0 +1,10 @@
+@use 'src/styles/constants/colors';
+
+.forecast {
+  transition: 300ms background-color;
+
+  :root[color-theme='dark'] & {
+    color: colors.$WHITE;
+    background-color: colors.$GRAY2;
+  }
+}

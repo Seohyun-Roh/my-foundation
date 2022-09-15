@@ -14,13 +14,12 @@ const Weather = () => {
     const params = { lat: 33.3333, lon: 33.44444 }
 
     getWeatherForecast5DaysApi(params).then((res) => {
-      console.log(res.data)
       setForecasts(res.data)
     })
   })
 
   return (
-    <section>
+    <section className={styles.forecast}>
       <h1>{forecasts?.city.name}</h1>
       <ul>
         {forecasts?.list.map((forecast) => (
