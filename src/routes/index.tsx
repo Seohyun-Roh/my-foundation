@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 
+import i18n from 'utils/locale'
 import { themeState } from 'states/theme'
 
 import styles from './routes.module.scss'
@@ -11,6 +12,10 @@ import GNB from './_shared/GNB'
 
 const App = () => {
   const theme = useRecoilValue(themeState)
+
+  useEffect(() => {
+    i18n.changeLanguage()
+  }, [])
 
   useEffect(() => {
     document.documentElement.setAttribute('color-theme', theme)

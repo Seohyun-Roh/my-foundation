@@ -14,6 +14,10 @@
         a {
           color: colors.$WHITE;
         }
+
+        button {
+          color: colors.$WHITE;
+        }
       }
     }
   }
@@ -36,6 +40,10 @@
 
       .themeBtn {
         @include flexbox.flexbox(center, center);
+      }
+
+      button {
+        font-size: 20px;
       }
     }
   }

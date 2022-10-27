@@ -12,30 +12,18 @@ import { Moon, Sun } from 'assets/svgs'
 const navData = ['home', 'weather']
 const navURI = ['/', '/weather']
 
-const storedLanguage = localStorage.getItem('language') || 'EN'
-
 const GNB = () => {
   const t = useI18n()
   const [theme, setTheme] = useRecoilState(themeState)
-  const [language, setLanguage] = useState(storedLanguage)
+  const [language, setLanguage] = useState('')
 
   useEffect(() => {
-    const userLanguage: string = window.navigator.language.toLowerCase().substring(0, 2)
+    const i18nLang = localStorage.getItem('i18nextLng')
 
-    if (localStorage.getItem('language') === null) {
-      if (userLanguage === 'ko') {
-        setLanguage('EN')
-        i18n.changeLanguage('ko')
-      } else {
-        setLanguage('KO')
-        i18n.changeLanguage('en')
-      }
+    if (i18nLang !== null) {
+      setLanguage(i18nLang.toUpperCase().substring(0, 2) === 'EN' ? 'KO' : 'EN')
     }
   }, [])
-
-  useEffect(() => {
-    localStorage.setItem('language', language)
-  }, [language])
 
   const handleThemeClick = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
@@ -61,15 +49,17 @@ const GNB = () => {
             </li>
           )
         })}
+        <li>
+          <button type='button' onClick={handleThemeClick} className={styles.themeBtn}>
+            {theme === 'light' ? <Sun /> : <Moon />}
+          </button>
+        </li>
+        <li>
+          <button type='button' onClick={handleLocaleClick}>
+            {language}
+          </button>
+        </li>
       </ul>
-      <div>
-        <button type='button' onClick={handleThemeClick} className={styles.themeBtn}>
-          {theme === 'light' ? <Sun /> : <Moon />}
-        </button>
-        <button type='button' onClick={handleLocaleClick}>
-          {language}
-        </button>
-      </div>
     </nav>
   )
 }
