@@ -20,6 +20,20 @@ const GNB = () => {
   const [language, setLanguage] = useState(storedLanguage)
 
   useEffect(() => {
+    const userLanguage: string = window.navigator.language.toLowerCase().substring(0, 2)
+
+    if (localStorage.getItem('language') === null) {
+      if (userLanguage === 'ko') {
+        setLanguage('EN')
+        i18n.changeLanguage('ko')
+      } else {
+        setLanguage('KO')
+        i18n.changeLanguage('en')
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     localStorage.setItem('language', language)
   }, [language])
 
