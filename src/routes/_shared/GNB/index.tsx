@@ -50,8 +50,8 @@ const GNB = () => {
           )
         })}
         <li>
-          <button type='button' onClick={handleThemeClick} className={styles.themeBtn}>
-            {theme === 'light' ? <Sun /> : <Moon />}
+          <button type='button' title={theme} onClick={handleThemeClick} className={styles.themeBtn}>
+            {theme === 'light' ? <Sun data-icon='light' /> : <Moon data-icon='dark' />}
           </button>
         </li>
         <li>
