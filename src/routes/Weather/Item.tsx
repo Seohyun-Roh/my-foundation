@@ -1,18 +1,19 @@
 import { IListItem } from 'types/weather'
 
+import styles from './weather.module.scss'
+
 interface IProps {
   forecast: IListItem
 }
 
 const Item = ({ forecast }: IProps) => {
   return (
-    <li>
+    <li className={styles.forecastItem}>
       <dl>
         <div>
           <dt>날짜</dt>
           <dd>
-            <time dateTime={`${forecast.dt}`}>{forecast.dt_txt}</time>
-            <time dateTime={`${forecast.dt}`}>{forecast.dt_txt}</time>
+            <time dateTime={`${forecast.dt}`}>{forecast.dt_txt.substring(0, 13)}시</time>
           </dd>
         </div>
         <div>
@@ -24,7 +25,7 @@ const Item = ({ forecast }: IProps) => {
         </div>
         <div>
           <dt>날씨</dt>
-          <dd>{forecast.weather[0].icon}</dd>
+          <dd>{forecast.weather[0].description}</dd>
         </div>
       </dl>
     </li>

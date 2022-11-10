@@ -3,12 +3,71 @@
 .select {
   position: relative;
 
+  .selected {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    padding: 5px 14px;
+    text-align: center;
+    cursor: pointer;
+    background-color: colors.$WHITE;
+    border: 1px solid rgb(209, 216, 220);
+    border-radius: 10px;
+    transition: 300ms all;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+
+    .downArrowIcon {
+      fill: colors.$GRAYA;
+      transition: transform 300ms;
+      transform: rotate(0deg);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .selectMenuOpen {
+      transition: transform 300ms;
+      transform: rotate(-180deg);
+    }
+  }
+
+  ul {
+    position: absolute;
+    top: 45px;
+    z-index: 4;
+    width: 100%;
+    height: auto;
+    padding-left: 0;
+    overflow-y: auto;
+    cursor: pointer;
+    background: colors.$WHITE;
+    border: 1px solid rgb(209, 216, 220);
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 300ms;
+
+    li {
+      button {
+        width: 100%;
+        padding: 12px 20px;
+      }
+
+      &:hover {
+        background-color: colors.$GRAYE;
+      }
+    }
+  }
+
   :root[color-theme='dark'] & {
     .selected,
     ul {
       color: colors.$WHITE;
       background-color: colors.$GRAY3 !important;
-      border: none;
+      border-color: colors.$GRAY3;
 
       li {
         &:hover {
@@ -25,65 +84,6 @@
       }
     }
   }
-
-  .selected {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 40px;
-    padding: 5px 14px;
-    text-align: center;
-    cursor: pointer;
-    background-color: colors.$WHITE;
-    border: 1px solid rgb(209, 216, 220);
-    border-radius: 10px;
-    transition: 300ms background-color;
-    -webkit-box-pack: justify;
-    -webkit-box-align: center;
-  }
-
-  ul {
-    position: absolute;
-    top: 45px;
-    z-index: 4;
-    width: 100%;
-    height: auto;
-    padding-left: 0;
-    overflow-y: auto;
-    cursor: pointer;
-    background: colors.$WHITE;
-    border: 1px solid rgb(209, 216, 220);
-    border-radius: 10px;
-    opacity: 0;
-    transition: all 0.2s ease-out;
-
-    li {
-      button {
-        width: 100%;
-        padding: 12px 20px;
-      }
-
-      &:hover {
-        background-color: colors.$GRAYE;
-      }
-    }
-  }
-}
-
-.downArrowIcon {
-  fill: colors.$GRAYA;
-  transition: transform 0.3s linear;
-  transform: rotate(0deg);
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.selectMenuOpen {
-  transition: transform 0.3s linear;
-  transform: rotate(-180deg);
 }
 
 .isOpenSelect {

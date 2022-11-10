@@ -3,6 +3,33 @@
 
 .gnb {
   border-bottom: 1px solid colors.$GRAYE;
+  transition: 300ms;
+
+  ul {
+    @include flexbox.flexbox(center, center);
+    padding: 20px 0;
+    transition: 300ms;
+
+    li {
+      font-size: 20px;
+
+      + li {
+        margin-left: 20px;
+      }
+
+      a {
+        color: colors.$GRAY2;
+      }
+
+      .themeBtn {
+        @include flexbox.flexbox(center, center);
+      }
+
+      button {
+        font-size: 20px;
+      }
+    }
+  }
 
   :root[color-theme='dark'] & {
     border-bottom: 1px solid colors.$GRAY3;
@@ -18,32 +45,6 @@
         button {
           color: colors.$WHITE;
         }
-      }
-    }
-  }
-
-  ul {
-    @include flexbox.flexbox(center, center);
-    padding: 20px 0;
-    transition: 300ms background-color;
-
-    li {
-      font-size: 20px;
-
-      +li {
-        margin-left: 20px;
-      }
-
-      a {
-        color: colors.$GRAY2;
-      }
-
-      .themeBtn {
-        @include flexbox.flexbox(center, center);
-      }
-
-      button {
-        font-size: 20px;
       }
     }
   }

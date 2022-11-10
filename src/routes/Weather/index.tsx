@@ -11,7 +11,7 @@ const Weather = () => {
   const [forecasts, setForecasts] = useState<IWeatherAPIRes>()
 
   useMount(() => {
-    const params = { lat: 33.3333, lon: 33.44444 }
+    const params = { lat: 33.3333, lon: 33.44444, lang: 'kr' }
 
     getWeatherForecast5DaysApi(params).then((res) => {
       setForecasts(res.data)
@@ -21,7 +21,7 @@ const Weather = () => {
   return (
     <section className={styles.forecast}>
       <h1>{forecasts?.city.name}</h1>
-      <ul>
+      <ul className={styles.forecastList}>
         {forecasts?.list.map((forecast) => (
           <Item key={forecast.dt} forecast={forecast} />
         ))}
