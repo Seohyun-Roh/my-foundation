@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 import DropDown from 'components/DropDown'
+import StopWatch from 'components/StopWatch'
+
 import styles from './home.module.scss'
 
 const DROPDOWN_CATEGORIES = ['전체', '음식점', '관광명소', '카페', '숙박', '문화시설', '기타']
@@ -13,6 +15,7 @@ const Home = () => {
       <DropDown selectList={DROPDOWN_CATEGORIES} setCurrentSelect={setCurrentCategory} size='small'>
         {currentCategory}
       </DropDown>
+      <StopWatch />
     </div>
   )
 }
