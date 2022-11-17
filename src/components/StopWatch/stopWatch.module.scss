@@ -8,8 +8,8 @@
   height: auto;
   padding: 20px;
   margin: 20px 0;
+  border: 1px solid colors.$APP_BOX_SHADOW;
   border-radius: 20px;
-  box-shadow: 0 1px 4px colors.$APP_BOX_SHADOW;
   transition: all 300ms;
 
   time {
@@ -36,7 +36,6 @@
 
   :root[color-theme='dark'] & {
     background-color: colors.$GRAY3;
-    box-shadow: 0 1px 4px colors.$GRAY3;
 
     .buttonWrapper {
       button {

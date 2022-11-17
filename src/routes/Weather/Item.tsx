@@ -13,7 +13,7 @@ const Item = ({ forecast }: IProps) => {
         <div>
           <dt>날짜</dt>
           <dd>
-            <time dateTime={`${forecast.dt}`}>{forecast.dt_txt.substring(0, 13)}시</time>
+            <time dateTime={`${forecast.dt}`}>{forecast.dt_txt.substring(0, 13)}:00</time>
           </dd>
         </div>
         <div>

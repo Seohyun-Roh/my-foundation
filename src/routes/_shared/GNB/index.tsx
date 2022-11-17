@@ -2,9 +2,10 @@ import { NavLink } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { cx } from 'styles'
 
-import { useEffect, useI18n, useState } from 'hooks'
+import { useI18n } from 'hooks'
 import i18n from 'utils/locale'
 import { themeState } from 'states/theme'
+import { languageState } from 'states/language'
 
 import styles from './gnb.module.scss'
 import { Moon, Sun } from 'assets/svgs'
@@ -15,15 +16,7 @@ const navURI = ['/', '/weather']
 const GNB = () => {
   const t = useI18n()
   const [theme, setTheme] = useRecoilState(themeState)
-  const [language, setLanguage] = useState('')
-
-  useEffect(() => {
-    const i18nLang = localStorage.getItem('i18nextLng')
-
-    if (i18nLang !== null) {
-      setLanguage(i18nLang.toUpperCase().substring(0, 2) === 'EN' ? 'KO' : 'EN')
-    }
-  }, [])
+  const [language, setLanguage] = useRecoilState(languageState)
 
   const handleThemeClick = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
@@ -33,8 +26,9 @@ const GNB = () => {
   }
 
   const handleLocaleClick = () => {
-    setLanguage(language === 'EN' ? 'KO' : 'EN')
-    i18n.changeLanguage(language.toLowerCase())
+    const newLanguage = language === 'ko' ? 'en' : 'ko'
+    setLanguage(newLanguage)
+    i18n.changeLanguage(newLanguage)
   }
 
   return (
@@ -56,7 +50,7 @@ const GNB = () => {
         </li>
         <li>
           <button type='button' onClick={handleLocaleClick}>
-            {language}
+            {language.toUpperCase() === 'KO' ? 'EN' : 'KO'}
           </button>
         </li>
       </ul>
