@@ -2,11 +2,11 @@ import { IListItem } from 'types/weather'
 
 import styles from './weather.module.scss'
 
-interface IProps {
+interface Props {
   forecast: IListItem
 }
 
-const Item = ({ forecast }: IProps) => {
+const Item = ({ forecast }: Props) => {
   return (
     <li className={styles.forecastItem}>
       <dl>

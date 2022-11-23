@@ -56,11 +56,19 @@
     overflow: hidden;
     border-right: 2px solid colors.$WHITE;
     border-left: 2px solid colors.$WHITE;
+    transition: border 300ms;
 
     img {
       flex-shrink: 0;
       min-width: 100%;
       min-height: 100%;
+    }
+  }
+
+  :root[color-theme='dark'] & {
+    .carouselItem {
+      border-right: 2px solid colors.$GRAY2;
+      border-left: 2px solid colors.$GRAY2;
     }
   }
 }
