@@ -5,6 +5,11 @@
   padding: 20px;
   transition: 300ms background-color;
 
+  .buttonsWrapper {
+    display: flex;
+    align-items: center;
+  }
+
   :root[color-theme='dark'] & {
     color: colors.$WHITE;
     background-color: colors.$GRAY2;
