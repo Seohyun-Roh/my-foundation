@@ -1,9 +1,6 @@
 import { useState } from 'react'
 
-import DropDown from 'components/DropDown'
-import StopWatch from 'components/StopWatch'
-import Carousel from 'components/Carousel'
-import { Button } from 'components/Button'
+import { Button, Carousel, DropDown, StopWatch } from 'components'
 
 import styles from './home.module.scss'
 

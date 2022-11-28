@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import styles from './stopWatch.module.scss'
 
-const StopWatch = () => {
+export const StopWatch = () => {
   const [time, setTime] = useState(0)
   const [isRunning, setIsRunning] = useState(false)
 
@@ -39,5 +39,3 @@ const StopWatch = () => {
     </div>
   )
 }
-
-export default StopWatch

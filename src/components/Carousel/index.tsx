@@ -11,7 +11,7 @@ interface Props {
 let touchStartX: number
 let touchEndX: number
 
-const Carousel = ({ carouselList }: Props) => {
+export const Carousel = ({ carouselList }: Props) => {
   const [currIndex, setCurrIndex] = useState(1)
   const [currList, setCurrList] = useState<string[]>()
 
@@ -106,5 +106,3 @@ const Carousel = ({ carouselList }: Props) => {
     </div>
   )
 }
-
-export default Carousel

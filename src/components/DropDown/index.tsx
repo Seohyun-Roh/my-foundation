@@ -13,7 +13,7 @@ interface IDropDownProps {
   size: 'large' | 'medium' | 'small'
 }
 
-const DropDown = ({ children, selectList, setCurrentSelect, size }: IDropDownProps) => {
+export const DropDown = ({ children, selectList, setCurrentSelect, size }: IDropDownProps) => {
   const [isOpenSelect, setIsOpenSelect] = useState(false)
 
   const handleVisibleOptions = () => {
@@ -53,5 +53,3 @@ const DropDown = ({ children, selectList, setCurrentSelect, size }: IDropDownPro
     </div>
   )
 }
-
-export default DropDown
