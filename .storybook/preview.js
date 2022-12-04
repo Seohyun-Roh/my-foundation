@@ -1,4 +1,3 @@
-import { themes } from '@storybook/theming'
 import { useDarkMode } from 'storybook-dark-mode'
 
 export const decorators = [
@@ -16,10 +15,5 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-  },
-  darkMode: {
-    dark: themes.dark,
-    light: themes.light,
-    current: 'light',
   },
 }
