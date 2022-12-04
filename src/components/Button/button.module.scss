@@ -4,6 +4,7 @@
 .button {
   @include flexbox.flexbox;
   border: 1px solid colors.$GRAYA;
+  transition: all 300ms;
 
   + .button {
     margin-left: 14px;
@@ -11,7 +12,7 @@
 
   &.primary {
     color: colors.$WHITE;
-    background-color: colors.$BLUE;
+    background-color: colors.$BLUE !important;
     border-color: transparent;
   }
 
@@ -27,5 +28,11 @@
     padding: 0 24px;
     font-size: 14px;
     border-radius: 10px;
+  }
+
+  :root[color-theme='dark'] & {
+    color: colors.$WHITE;
+    background-color: colors.$GRAY3;
+    border-color: colors.$GRAY3;
   }
 }
