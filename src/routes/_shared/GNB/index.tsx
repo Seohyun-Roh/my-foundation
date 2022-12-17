@@ -10,8 +10,8 @@ import { languageState } from 'states/language'
 import styles from './gnb.module.scss'
 import { Moon, Sun } from 'assets/svgs'
 
-const navData = ['home', 'weather']
-const navURI = ['/', '/weather']
+const navData = ['home', 'weather', 'directory']
+const navURI = ['/', '/weather', '/directory']
 
 const GNB = () => {
   const t = useI18n()

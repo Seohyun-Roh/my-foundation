@@ -7,9 +7,10 @@ import { themeState } from 'states/theme'
 import { languageState } from 'states/language'
 
 import styles from './routes.module.scss'
-import HomePage from './Home'
-import Weather from './Weather'
 import GNB from './_shared/GNB'
+import Home from './Home'
+import Weather from './Weather'
+import Directory from './Directory'
 
 const App = () => {
   const [theme] = useRecoilState(themeState)
@@ -29,8 +30,9 @@ const App = () => {
       <GNB />
       <main className={styles.app}>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<Home />} />
           <Route path='weather' element={<Weather />} />
+          <Route path='directory' element={<Directory />} />
         </Routes>
       </main>
     </div>
