@@ -48,7 +48,7 @@ const directoryTree: TreeNode = {
     },
     {
       id: 8,
-      name: 'Child 2',
+      name: 'Child 3',
       type: 'file',
     },
   ],
