@@ -55,6 +55,7 @@
     "react-scripts": "5.0.1",
     "react-use": "^17.3.2",
     "recoil": "^0.7.5",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
