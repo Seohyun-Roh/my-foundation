@@ -1,27 +1,8 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import api, { TreeNode } from 'services/directory'
 
-interface Props {
-  data: TreeNode[] | undefined
-}
-
-const Child = ({ data }: Props) => {
-  return (
-    <li>
-      <ul>
-        {data?.map((child) => {
-          return (
-            <Fragment key={`${child.id}-${child.name}`}>
-              <li>{child.name}</li>
-              {child.type === 'folder' && <Child data={child.children} />}
-            </Fragment>
-          )
-        })}
-      </ul>
-    </li>
-  )
-}
+import Child from './Child'
 
 const Directory = () => {
   const [directory, setDirectory] = useState<TreeNode>()
