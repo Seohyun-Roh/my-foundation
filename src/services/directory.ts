@@ -39,7 +39,7 @@ const directoryTree: TreeNode = {
             },
             {
               id: 7,
-              name: 'Grand Grand Child 2',
+              name: 'Great Grand Child 2',
               type: 'file',
             },
           ],
