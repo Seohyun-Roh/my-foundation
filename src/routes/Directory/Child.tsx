@@ -7,20 +7,22 @@ interface Props {
   depth?: number
 }
 
-const Child = ({ data, depth = 1 }: Props) => {
+const Child = ({ data, depth = 0 }: Props) => {
   return (
-    <li>
-      <ul>
-        {data?.map((child) => {
-          return (
-            <Fragment key={`${child.id}-${child.name}`}>
-              <li style={{ marginLeft: depth * 20 }}>{child.name}</li>
-              {child.type === 'folder' && <Child data={child.children} depth={depth + 1} />}
-            </Fragment>
-          )
-        })}
-      </ul>
-    </li>
+    <ul>
+      {data?.map((child) => {
+        return (
+          <Fragment key={`${child.id}-${child.name}`}>
+            <li style={{ marginLeft: depth * 20 }}>{child.name}</li>
+            {child.type === 'folder' && (
+              <li>
+                <Child data={child.children} depth={depth + 1} />
+              </li>
+            )}
+          </Fragment>
+        )
+      })}
+    </ul>
   )
 }
 
