@@ -11,7 +11,17 @@ const Directory = () => {
     api.getDirectoryTree().then((res) => setDirectory(res))
   }, [])
 
-  return <div>{directory && <Child data={directory} />}</div>
+  return (
+    <div>
+      {directory && (
+        <ul>
+          {directory.map((d) => (
+            <Child key={`${d.id}-${d.name}`} child={d} />
+          ))}
+        </ul>
+      )}
+    </div>
+  )
 }
 
 export default Directory

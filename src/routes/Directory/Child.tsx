@@ -1,28 +1,38 @@
-import { Fragment } from 'react'
+import { useState } from 'react'
 
 import { TreeNode } from 'services/directory'
 
 interface Props {
-  data: TreeNode[] | undefined
+  child: TreeNode
   depth?: number
 }
 
-const Child = ({ data, depth = 0 }: Props) => {
+const Child = ({ child, depth = 0 }: Props) => {
+  const [isOpened, setIsOpened] = useState(true)
+
+  const handleClick = () => {
+    setIsOpened((prev) => !prev)
+  }
+
+  if (child.type === 'file') {
+    return <li style={{ marginLeft: depth * 20 }}>{child.name}</li>
+  }
+
   return (
-    <ul>
-      {data?.map((child) => {
-        return (
-          <Fragment key={`${child.id}-${child.name}`}>
-            <li style={{ marginLeft: depth * 20 }}>{child.name}</li>
-            {child.type === 'folder' && (
-              <li>
-                <Child data={child.children} depth={depth + 1} />
-              </li>
-            )}
-          </Fragment>
-        )
-      })}
-    </ul>
+    <>
+      <li style={{ marginLeft: depth * 20 }}>
+        <button type='button' onClick={handleClick}>
+          {child.name}
+        </button>
+      </li>
+      <li>
+        <ul>
+          {isOpened &&
+            child.type === 'folder' &&
+            child.children?.map((c) => <Child key={`${c.id}`} child={c} depth={depth + 1} />)}
+        </ul>
+      </li>
+    </>
   )
 }
 
