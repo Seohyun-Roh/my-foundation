@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import api, { TreeNode } from 'services/directory'
 
+import * as Styled from './index.styles'
 import Child from './Child'
 
 const Directory = () => {
@@ -12,7 +13,7 @@ const Directory = () => {
   }, [])
 
   return (
-    <div>
+    <Styled.Directory>
       {directory && (
         <ul>
           {directory.map((d) => (
@@ -20,7 +21,7 @@ const Directory = () => {
           ))}
         </ul>
       )}
-    </div>
+    </Styled.Directory>
   )
 }
 

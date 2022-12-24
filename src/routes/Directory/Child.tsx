@@ -2,6 +2,9 @@ import { useState } from 'react'
 
 import { TreeNode } from 'services/directory'
 
+import { DownArrow } from 'assets/svgs'
+import * as Styled from './index.styles'
+
 interface Props {
   child: TreeNode
   depth?: number
@@ -15,22 +18,23 @@ const Child = ({ child, depth = 0 }: Props) => {
   }
 
   if (child.type === 'file') {
-    return <li style={{ marginLeft: depth * 20 }}>{child.name}</li>
+    return <Styled.ChildItem depth={depth}>{child.name}</Styled.ChildItem>
   }
 
   return (
     <>
-      <li style={{ marginLeft: depth * 20 }}>
+      <Styled.ChildItem depth={depth}>
         <button type='button' onClick={handleClick}>
           {child.name}
+          <Styled.ButtonArrow isOpened={isOpened}>
+            <DownArrow width={19} height={19} fill='#333333' />
+          </Styled.ButtonArrow>
         </button>
-      </li>
+      </Styled.ChildItem>
       <li>
-        <ul>
-          {isOpened &&
-            child.type === 'folder' &&
-            child.children?.map((c) => <Child key={`${c.id}`} child={c} depth={depth + 1} />)}
-        </ul>
+        <Styled.ChildContainer isOpened={isOpened}>
+          {child.type === 'folder' && child.children?.map((c) => <Child key={`${c.id}`} child={c} depth={depth + 1} />)}
+        </Styled.ChildContainer>
       </li>
     </>
   )
