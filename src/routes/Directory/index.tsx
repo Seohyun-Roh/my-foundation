@@ -15,11 +15,11 @@ const Directory = () => {
   return (
     <Styled.Directory>
       {directory && (
-        <ul>
+        <Styled.ChildContainer>
           {directory.map((d) => (
             <Child key={`${d.id}-${d.name}`} child={d} />
           ))}
-        </ul>
+        </Styled.ChildContainer>
       )}
     </Styled.Directory>
   )
