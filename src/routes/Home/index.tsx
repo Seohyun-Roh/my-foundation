@@ -22,12 +22,16 @@ const Home = () => {
       <StopWatch />
       <Carousel carouselList={CAROUSEL_IMAGES} />
       <div className={styles.buttonsWrapper}>
-        <Button size='small'>작은 버튼</Button>
-        <Button size='small' primary>
+        <Button size='small' type='button'>
+          작은 버튼
+        </Button>
+        <Button size='small' type='button' primary>
           작은 주요 버튼
         </Button>
-        <Button size='large'>큰 버튼</Button>
-        <Button size='large' primary>
+        <Button size='large' type='button'>
+          큰 버튼
+        </Button>
+        <Button size='large' type='button' primary>
           큰 주요 버튼
         </Button>
       </div>
