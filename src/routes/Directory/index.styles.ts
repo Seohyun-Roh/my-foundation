@@ -31,10 +31,6 @@ export const ChildContainer = styled.ul<IChildContainer>`
     `
   }}
 
-  button {
-    font-size: 16px;
-  }
-
   li {
     cursor: pointer;
     font-size: 16px;
@@ -42,11 +38,10 @@ export const ChildContainer = styled.ul<IChildContainer>`
   }
 `
 
-export const ChildItem = styled.li`
-  button {
-    display: flex;
-    align-items: center;
-  }
+export const ChildButton = styled.button`
+  display: flex;
+  align-items: center;
+  font-size: 16px;
 `
 
 export const ButtonArrow = styled.span<IButtonArrow>`

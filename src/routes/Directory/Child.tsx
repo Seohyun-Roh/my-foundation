@@ -17,19 +17,19 @@ const Child = ({ child }: Props) => {
   }
 
   if (child.type === 'file') {
-    return <Styled.ChildItem>{child.name}</Styled.ChildItem>
+    return <li>{child.name}</li>
   }
 
   return (
     <>
-      <Styled.ChildItem>
-        <button type='button' onClick={handleClick}>
+      <li>
+        <Styled.ChildButton type='button' onClick={handleClick}>
           {child.name}
           <Styled.ButtonArrow isOpened={isOpened}>
             <DownArrow width={18} height={18} fill='#666666' />
           </Styled.ButtonArrow>
-        </button>
-      </Styled.ChildItem>
+        </Styled.ChildButton>
+      </li>
       <li>
         <Styled.ChildContainer isOpened={isOpened}>
           {child.type === 'folder' && child.children?.map((c) => <Child key={`${c.id}`} child={c} />)}
