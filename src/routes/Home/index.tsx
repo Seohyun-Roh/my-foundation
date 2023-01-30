@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, Carousel, DropDown, StopWatch } from 'components'
+import { Button, Carousel, DropDown, StopWatch, Modal } from 'components'
 
 import styles from './home.module.scss'
 
@@ -13,6 +13,11 @@ const CAROUSEL_IMAGES = [
 
 const Home = () => {
   const [currentCategory, setCurrentCategory] = useState('전체')
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true)
+  }
 
   return (
     <div className={styles.container}>
@@ -22,15 +27,27 @@ const Home = () => {
       <StopWatch />
       <Carousel carouselList={CAROUSEL_IMAGES} />
       <div className={styles.buttonsWrapper}>
-        <Button size='small'>작은 버튼</Button>
-        <Button size='small' primary>
+        <Button size='small' type='button'>
+          작은 버튼
+        </Button>
+        <Button size='small' type='button' primary>
           작은 주요 버튼
         </Button>
-        <Button size='large'>큰 버튼</Button>
-        <Button size='large' primary>
+        <Button size='large' type='button'>
+          큰 버튼
+        </Button>
+        <Button size='large' type='button' primary>
           큰 주요 버튼
         </Button>
       </div>
+      <Button size='large' type='button' onClick={handleModalOpen}>
+        모달 열기
+      </Button>
+      {isModalOpen && (
+        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+          모달 내용!
+        </Modal>
+      )}
     </div>
   )
 }
