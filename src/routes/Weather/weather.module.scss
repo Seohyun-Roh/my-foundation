@@ -20,7 +20,7 @@
     width: 80%;
 
     .forecastItem {
-      @include flexbox.flexbox(center, center);
+      @include flexbox.flexbox(between, center);
       width: 260px;
       height: auto;
       padding: 20px;
