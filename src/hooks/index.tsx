@@ -6,6 +6,7 @@ export { useState, useEffect, useLayoutEffect, useCallback, useContext, useMemo,
 
 export { useI18n } from './useI18n'
 export { useOnClickOutside } from './useOnClickOutside'
+export { useGeoLocation } from './useGeoLocation'
 
 export function useMounted(): boolean {
   const [mounted, setMounted] = useState(false)
