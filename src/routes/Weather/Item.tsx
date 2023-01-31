@@ -1,5 +1,6 @@
 import { useI18n } from 'hooks'
 import { IListItem } from 'types/weather'
+import { WEATHER_IMG_URL } from 'constants/weather'
 
 import styles from './weather.module.scss'
 
@@ -35,7 +36,7 @@ const Item = ({ forecast }: Props) => {
         </div>
       </dl>
       <img
-        src={`http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}
+        src={`${WEATHER_IMG_URL}/${forecast.weather[0].icon}.png`}
         alt={forecast.weather[0].icon}
         className={styles.forecastIcon}
       />
