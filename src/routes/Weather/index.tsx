@@ -7,6 +7,7 @@ import { languageState } from 'states/language'
 import { IWeatherAPIRes } from 'types/weather'
 
 import Item from './Item'
+import GeoLocationErrorToast from './GeoLocationErrorToast'
 import styles from './weather.module.scss'
 
 const geolocationOptions = {
@@ -16,8 +17,9 @@ const geolocationOptions = {
 }
 
 const Weather = () => {
+  const { location, error } = useGeoLocation(geolocationOptions)
+
   const language = useRecoilValue(languageState)
-  const { location } = useGeoLocation(geolocationOptions)
   const [forecasts, setForecasts] = useState<IWeatherAPIRes>()
 
   useEffect(() => {
@@ -46,6 +48,7 @@ const Weather = () => {
 
   return (
     <section className={styles.forecast}>
+      <GeoLocationErrorToast error={error} />
       <h1>{forecasts?.city.name}</h1>
       <ul className={styles.forecastList}>
         {forecasts?.list.map((forecast) => (
