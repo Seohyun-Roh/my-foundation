@@ -13,6 +13,52 @@
 - `i18n`
 - `ESLint`, `Prettier`, `Stylelint`
 
+## 프로젝트 설치 & 실행
+
+```bash
+git clone https://github.com/Seohyun-Roh/my-foundation.git
+
+yarn
+
+yarn start
+```
+
+## 폴더 구조
+
+```bash
+├─assets
+│  └─svgs
+├─components
+│  ├─Button
+│  ├─Carousel
+│  ├─DropDown
+│  ├─Modal    
+│  └─StopWatch
+├─constants   
+├─data        
+├─hooks       
+├─routes      
+│  ├─Directory
+│  ├─Home     
+│  ├─Weather  
+│  │  └─GeoLocationErrorToast
+│  └─_shared
+│      └─GNB
+├─services
+├─states
+├─stories
+│  └─assets
+├─styles
+│  ├─base
+│  ├─constants
+│  └─mixins
+├─types
+└─utils
+    └─locale
+        ├─en
+        └─ko
+```
+
 ## Components
 
 ### Button
