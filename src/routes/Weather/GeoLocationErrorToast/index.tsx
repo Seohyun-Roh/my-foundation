@@ -1,6 +1,6 @@
+import { useCallback, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { useCallback, useEffect } from 'react'
 
 interface Props {
   error: string
@@ -14,7 +14,7 @@ const GeoLocationErrorToast = ({ error }: Props) => {
       toastMessage = `${error}: 위치 권한이 거부되었습니다.\n현재 위치로 설정하고 싶다면 위치 권한을 허용해주세요.`
     }
 
-    toast.info(toastMessage)
+    toast.error(toastMessage)
   }, [error])
 
   useEffect(() => {
@@ -23,11 +23,7 @@ const GeoLocationErrorToast = ({ error }: Props) => {
     }
   }, [error, showToast])
 
-  return (
-    <div>
-      <ToastContainer style={{ whiteSpace: 'pre-line', lineHeight: '20px' }} />
-    </div>
-  )
+  return <ToastContainer style={{ whiteSpace: 'pre-line', lineHeight: '20px' }} />
 }
 
 export default GeoLocationErrorToast
