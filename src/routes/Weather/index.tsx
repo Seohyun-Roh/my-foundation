@@ -50,6 +50,7 @@ const Weather = () => {
     <section className={styles.forecast}>
       <GeoLocationErrorToast error={error} />
       <h1>{forecasts?.city.name}</h1>
+      <button type='button'>현재 위치</button>
       <ul className={styles.forecastList}>
         {forecasts?.list.map((forecast) => (
           <Item key={forecast.dt} forecast={forecast} />
