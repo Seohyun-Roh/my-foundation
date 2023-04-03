@@ -7,7 +7,7 @@ import { useMouseFollow } from 'hooks'
 import styles from './mouseFollowPageContainer.module.scss'
 
 const MouseFollowPageContainer = ({ children }: { children: ReactNode }) => {
-  const { handleMouseMove, handleMouseDown, handleMouseUp, handleMouseEnter, handleMouseLeave, mouseRef } =
+  const { handleMouseMove, handleMouseDown, handleMouseUp, handleMouseEnter, handleMouseLeave, mouseRef, circleRef } =
     useMouseFollow()
 
   return (
@@ -19,7 +19,9 @@ const MouseFollowPageContainer = ({ children }: { children: ReactNode }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={styles.mouseMoveDiv} ref={mouseRef} />
+      <div className={styles.cursorItem} ref={mouseRef}>
+        <div className={styles.circle} ref={circleRef} />
+      </div>
       {children}
     </div>
   )

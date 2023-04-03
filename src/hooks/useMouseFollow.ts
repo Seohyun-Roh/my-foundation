@@ -4,10 +4,11 @@ let x = 0
 let y = 0
 let targetX = 0
 let targetY = 0
-const speed = 0.05
+const speed = 0.08
 
 export const useMouseFollow = () => {
   const mouseRef = useRef<HTMLDivElement>(null)
+  const circleRef = useRef<HTMLDivElement>(null)
   const requestRef = useRef(0)
 
   const handleMouseMove: MouseEventHandler = (e) => {
@@ -20,8 +21,7 @@ export const useMouseFollow = () => {
     targetY += (y - targetY) * speed
 
     if (mouseRef.current) {
-      mouseRef.current.style.top = `${targetY}px`
-      mouseRef.current.style.left = `${targetX}px`
+      mouseRef.current.style.transform = `translate(${targetX}px, ${targetY}px)`
     }
 
     requestRef.current = requestAnimationFrame(loop)
@@ -34,28 +34,28 @@ export const useMouseFollow = () => {
   }, [loop])
 
   const handleMouseDown = () => {
-    if (mouseRef.current) {
-      mouseRef.current.style.backgroundColor = '#ea3a4b'
+    if (circleRef.current) {
+      circleRef.current.style.backgroundColor = '#ea3a4b'
     }
   }
 
   const handleMouseUp = () => {
-    if (mouseRef.current) {
-      mouseRef.current.style.backgroundColor = '#000000'
+    if (circleRef.current) {
+      circleRef.current.style.backgroundColor = '#000000'
     }
   }
 
   const handleMouseEnter = () => {
-    if (mouseRef.current) {
-      mouseRef.current.style.display = 'block'
+    if (circleRef.current) {
+      circleRef.current.style.display = 'block'
     }
   }
 
   const handleMouseLeave = () => {
-    if (mouseRef.current) {
-      mouseRef.current.style.display = 'none'
+    if (circleRef.current) {
+      circleRef.current.style.display = 'none'
     }
   }
 
-  return { handleMouseMove, handleMouseDown, handleMouseUp, handleMouseEnter, handleMouseLeave, mouseRef }
+  return { handleMouseMove, handleMouseDown, handleMouseUp, handleMouseEnter, handleMouseLeave, mouseRef, circleRef }
 }
