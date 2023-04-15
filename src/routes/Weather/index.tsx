@@ -31,10 +31,8 @@ const Weather = () => {
 
     if (savedLocation) {
       ;({ lat, lon } = JSON.parse(savedLocation))
-    } else {
-      if (location) {
-        ;({ latitude: lat, longitude: lon } = location)
-      }
+    } else if (location) {
+      ;({ latitude: lat, longitude: lon } = location)
 
       localStorage.setItem('currentLocation', JSON.stringify({ lat, lon }))
     }
