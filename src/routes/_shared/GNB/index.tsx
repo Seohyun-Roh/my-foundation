@@ -7,11 +7,11 @@ import i18n from 'utils/locale'
 import { themeState } from 'states/theme'
 import { languageState } from 'states/language'
 
-import styles from './gnb.module.scss'
 import { Moon, Sun } from 'assets/svgs'
+import styles from './gnb.module.scss'
 
-const navData = ['home', 'weather', 'directory']
-const navURI = ['/', '/weather', '/directory']
+const navData = ['home', 'weather', 'directory', 'interactive']
+const navURI = ['/', '/weather', '/directory', '/interactive']
 
 const GNB = () => {
   const t = useI18n()
