@@ -7,7 +7,7 @@ export const StopWatch = () => {
   const [isRunning, setIsRunning] = useState(false)
 
   useEffect(() => {
-    let interval: NodeJS.Timer | undefined
+    let interval: NodeJS.Timeout | undefined
 
     if (isRunning) {
       interval = setInterval(() => {
