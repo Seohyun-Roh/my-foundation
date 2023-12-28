@@ -1,0 +1,7 @@
+{
+  "ignorePaths": [".git", ".gitignore", "yarn.lock"],
+  "words": [
+    "graye",
+    "svgs"
+  ]
+}
