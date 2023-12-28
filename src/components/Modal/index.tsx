@@ -30,7 +30,7 @@ export const Modal = ({ isModalOpen, setIsModalOpen, children }: Props) => {
   return (
     <div onClick={handleCloseClick} className={styles.modalContainer}>
       <div onClick={handleModalClick} className={styles.modal}>
-        <button type='button' onClick={handleCloseClick} className={styles.closeButton}>
+        <button type='button' aria-label='close' onClick={handleCloseClick} className={styles.closeButton}>
           <Close />
         </button>
         <div>{children}</div>

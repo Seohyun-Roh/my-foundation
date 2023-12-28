@@ -89,10 +89,10 @@ export const Carousel = ({ carouselList }: Props) => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <button type='button' className={styles.swipeLeft} onClick={() => handleSwipe(-1)}>
+        <button type='button' aria-label='swipeLeft' className={styles.swipeLeft} onClick={() => handleSwipe(-1)}>
           <ChevronLeft />
         </button>
-        <button type='button' className={styles.swipeRight} onClick={() => handleSwipe(1)}>
+        <button type='button' aria-label='swipeRight' className={styles.swipeRight} onClick={() => handleSwipe(1)}>
           <ChevronRight />
         </button>
         <ul className={styles.carousel} ref={carouselRef}>
